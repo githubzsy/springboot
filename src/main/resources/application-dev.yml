@@ -1,2 +1,25 @@
 server:
-  port: 12347
+  port: 12346
+primarydb:
+  uniqueResourceName: primary
+  xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource
+  xaProperties:
+    url: jdbc:mysql://localhost:3306/spring_boot_test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+    user: root
+    password: welcome
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: SELECT 1 from dual #由于采用HikiriCP，用于检测数据库连接是否存活。
+
+secondarydb:
+  uniqueResourceName: secondary
+  xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource
+  xaProperties:
+    url: jdbc:mysql://localhost:3306/spring_boot_test2?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+    user: root
+    password: welcome
+  exclusiveConnectionMode: true
+  minPoolSize: 3
+  maxPoolSize: 10
+  testQuery: SELECT 1 from dual #由于采用HikiriCP，用于检测数据库连接是否存活。

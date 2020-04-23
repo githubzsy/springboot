@@ -19,7 +19,6 @@ import java.util.List;
 @JsonPropertyOrder(value={"content","title"})
 public class Article {
 
-    @JsonIgnore
     private Long id;
 
     private String author;
