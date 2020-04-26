@@ -1,6 +1,6 @@
 package com.zhoushiya.bootlaunch;
 
-import com.zhoushiya.bootlaunch.service.ArticleRestService;
+import com.zhoushiya.bootlaunch.service.ArticleRestJPAServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +29,7 @@ public class ArticleRestControllerTest2 {
     private MockMvc mockMvc;
 
     @Resource
-    ArticleRestService articleRestService;
+    ArticleRestJPAServiceImpl articleRestService;
 
     //测试方法
     @Test

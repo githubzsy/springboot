@@ -1,2 +1,27 @@
 server:
-  port: 12347
+  port: 12346
+spring:
+  datasource:
+    primary:
+      jdbc-url: jdbc:mysql://localhost:3306/testdb?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
+      username: zhoushiya
+      password: welcome
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    secondary:
+      jdbc-url: jdbc:mysql://localhost:3306/testdb2?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
+      username: zhoushiya
+      password: welcome
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    show-sql: true
+  jta:
+    atomikos:
+      datasource:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
+      connectionfactory:
+        max-pool-size: 20
+        borrow-connection-timeout: 60

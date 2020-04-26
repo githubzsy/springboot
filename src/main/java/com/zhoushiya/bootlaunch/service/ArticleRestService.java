@@ -1,23 +1,18 @@
 package com.zhoushiya.bootlaunch.service;
 
-import com.zhoushiya.bootlaunch.model.Article;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import com.zhoushiya.bootlaunch.model.ArticleVO;
 
-import javax.annotation.Resource;
+import java.util.List;
 
-@Slf4j
-@Service
-public class ArticleRestService {
+public interface ArticleRestService {
 
+    ArticleVO saveArticle(ArticleVO article);
 
-    /**
-     * 保存文章
-     * @param article
-     * @return
-     */
-    public String saveArticle(Article article) {
-        log.info("saveArticle:{}",article);
-        return "测试";
-    }
+    void deleteArticle(Long id);
+
+    void updateArticle(ArticleVO article);
+
+    ArticleVO getArticle(Long id);
+
+    List<ArticleVO> getAll();
 }
