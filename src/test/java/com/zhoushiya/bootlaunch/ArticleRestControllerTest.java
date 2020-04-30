@@ -1,6 +1,6 @@
 package com.zhoushiya.bootlaunch;
 
-import com.zhoushiya.bootlaunch.controller.ArticleRestController;
+import com.zhoushiya.bootlaunch.generator.testdb.controller.ArticleController;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ public class ArticleRestControllerTest {
     //mock对象初始化
     @BeforeEach
     public void setUp() {
-        mockMvc = MockMvcBuilders.standaloneSetup(new ArticleRestController()).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(new ArticleController()).build();
     }
 
     //测试方法
