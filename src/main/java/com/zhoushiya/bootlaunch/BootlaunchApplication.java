@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.zhoushiya.bootlaunch.generator.testdb.mapper")
+@MapperScan(basePackages = {"com.zhoushiya.bootlaunch.generator.**.mapper"})
 public class BootlaunchApplication {
 
     public static void main(String[] args) {

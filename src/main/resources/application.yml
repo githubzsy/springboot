@@ -15,3 +15,9 @@ jasypt:
   encryptor:
     password: 123456
 
+logging:
+  level:
+    root: warn
+    com.zhoushiya.bootlaunch: trace
+  pattern:
+    console: '自定义日志:%p%m%n'
