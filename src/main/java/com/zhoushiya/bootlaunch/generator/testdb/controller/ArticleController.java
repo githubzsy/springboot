@@ -1,5 +1,6 @@
 package com.zhoushiya.bootlaunch.generator.testdb.controller;
 
+import com.zhoushiya.bootlaunch.generator.testdb.entity.Article;
 import com.zhoushiya.bootlaunch.generator.testdb.service.IArticleService;
 import com.zhoushiya.bootlaunch.generator.testdb.vo.ArticleVO;
 import com.zhoushiya.bootlaunch.model.AjaxResponse;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -64,5 +67,11 @@ public class ArticleController {
     public AjaxResponse getArticle(@PathVariable Long id) {
         ArticleVO articleVO= articleService.getVOById(id);
         return AjaxResponse.success(articleVO);
+    }
+
+    @GetMapping("/article")
+    public AjaxResponse getAll() {
+        List<ArticleVO> articles = articleService.listVO();
+        return AjaxResponse.success(articles);
     }
 }

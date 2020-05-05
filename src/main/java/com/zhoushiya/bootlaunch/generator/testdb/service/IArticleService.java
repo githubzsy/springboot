@@ -4,6 +4,8 @@ import com.zhoushiya.bootlaunch.generator.testdb.entity.Article;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zhoushiya.bootlaunch.generator.testdb.vo.ArticleVO;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -21,4 +23,10 @@ public interface IArticleService extends IService<Article> {
     ArticleVO saveOrUpdate(ArticleVO articleVO);
 
     ArticleVO getVOById(long id);
+
+    /**
+     * 获取所有的文章
+     * @return
+     */
+    List<ArticleVO> listVO();
 }

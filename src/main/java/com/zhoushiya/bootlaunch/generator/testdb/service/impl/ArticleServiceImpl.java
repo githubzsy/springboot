@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -41,5 +42,12 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         Article article = super.getById(id);
         ArticleVO articleVO= mapper.map(article,ArticleVO.class);
         return articleVO;
+    }
+
+    @Override
+    public List<ArticleVO> listVO() {
+        List<Article> articles=super.list();
+        List<ArticleVO> articleVOs= DozerUtils.mapList(articles,ArticleVO.class);
+        return articleVOs;
     }
 }

@@ -24,7 +24,8 @@ __基础路径__ : /
 
 === 标签
 
-* article-rest-controller : Article Rest Controller
+* article-controller : Article Controller
+* user-controller : User Controller
 
 
 
@@ -32,9 +33,9 @@ __基础路径__ : /
 [[_paths]]
 == 资源
 
-[[_article-rest-controller_resource]]
-=== Article-rest-controller
-Article Rest Controller
+[[_article-controller_resource]]
+=== Article-controller
+Article Controller
 
 
 [[_savearticleusingpost]]
@@ -54,7 +55,7 @@ POST /rest/article
 |===
 |类型|名称|说明|类型
 |**Body**|**article** +
-__必填__|article|<<_article,Article>>
+__必填__|article|<<_articlevo,ArticleVO>>
 |===
 
 
@@ -98,7 +99,7 @@ __必填__|article|<<_article,Article>>
   "author" : "string",
   "content" : "string",
   "createTime" : "string",
-  "reader" : [ {
+  "readers" : [ {
     "age" : 0,
     "name" : "string"
   } ],
@@ -134,6 +135,57 @@ __必填__|article|<<_article,Article>>
 
 
 ====== 响应 500
+[source,json]
+----
+{
+  "code" : 0,
+  "data" : "object",
+  "isok" : false,
+  "message" : "string"
+}
+----
+
+
+[[_getallusingget]]
+==== getAll
+....
+GET /rest/article
+....
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_ajaxresponse,AjaxResponse>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/rest/article
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
 [source,json]
 ----
 {
@@ -221,7 +273,7 @@ PUT /rest/article/{id}
 |**Path**|**id** +
 __必填__|id|integer (int64)
 |**Body**|**article** +
-__必填__|article|<<_article,Article>>
+__必填__|article|<<_articlevo,ArticleVO>>
 |===
 
 
@@ -263,7 +315,7 @@ __必填__|article|<<_article,Article>>
   "author" : "string",
   "content" : "string",
   "createTime" : "string",
-  "reader" : [ {
+  "readers" : [ {
     "age" : 0,
     "name" : "string"
   } ],
@@ -347,6 +399,208 @@ __必填__|id|integer (int64)
 ----
 
 
+[[_user-controller_resource]]
+=== User-controller
+User Controller
+
+
+[[_saveuserusingpost]]
+==== saveUser
+....
+POST /rest/user
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Body**|**vo** +
+__必填__|vo|<<_uservo,UserVO>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_ajaxresponse,AjaxResponse>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/rest/user
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "age" : 0,
+  "createTime" : "string",
+  "email" : "string",
+  "managerId" : 0,
+  "name" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "code" : 0,
+  "data" : "object",
+  "isok" : false,
+  "message" : "string"
+}
+----
+
+
+[[_getuserusingget]]
+==== getUser
+....
+GET /rest/user/{id}
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Path**|**id** +
+__必填__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_ajaxresponse,AjaxResponse>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/rest/user/string
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "code" : 0,
+  "data" : "object",
+  "isok" : false,
+  "message" : "string"
+}
+----
+
+
+[[_deleteuserusingdelete]]
+==== deleteUser
+....
+DELETE /rest/user/{id}
+....
+
+
+===== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Path**|**id** +
+__必填__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_ajaxresponse,AjaxResponse>>
+|**204**|No Content|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/rest/user/string
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "code" : 0,
+  "data" : "object",
+  "isok" : false,
+  "message" : "string"
+}
+----
+
+
 
 
 [[_definitions]]
@@ -371,8 +625,8 @@ __可选__|**样例** : `"string"`|string
 |===
 
 
-[[_article]]
-=== Article
+[[_articlevo]]
+=== ArticleVO
 
 [options="header", cols=".^3,.^11,.^4"]
 |===
@@ -383,21 +637,40 @@ __可选__|**样例** : `"string"`|string
 __可选__|**样例** : `"string"`|string
 |**createTime** +
 __可选__|**样例** : `"string"`|string (date-time)
-|**reader** +
-__可选__|**样例** : `[ "<<_reader>>" ]`|< <<_reader,Reader>> > array
+|**readers** +
+__可选__|**样例** : `[ "<<_readervo>>" ]`|< <<_readervo,ReaderVO>> > array
 |**title** +
 __可选__|**样例** : `"string"`|string
 |===
 
 
-[[_reader]]
-=== Reader
+[[_readervo]]
+=== ReaderVO
 
 [options="header", cols=".^3,.^11,.^4"]
 |===
 |名称|说明|类型
 |**age** +
 __可选__|**样例** : `0`|integer (int32)
+|**name** +
+__可选__|**样例** : `"string"`|string
+|===
+
+
+[[_uservo]]
+=== UserVO
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**age** +
+__可选__|**样例** : `0`|integer (int32)
+|**createTime** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**email** +
+__可选__|**样例** : `"string"`|string
+|**managerId** +
+__可选__|**样例** : `0`|integer (int64)
 |**name** +
 __可选__|**样例** : `"string"`|string
 |===
