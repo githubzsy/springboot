@@ -11,7 +11,7 @@ public class HelloController {
 
     @RequestMapping("/")
     public ArticleVO hello() {
-        ArticleVO article = ArticleVO.builder().id(3L).author("周诗雅").build();
+        ArticleVO article = ArticleVO.builder().id(3L).author("欢迎来到演示站点").build();
 
         log.info("测试一下:" + article);
         return article;
@@ -19,7 +19,7 @@ public class HelloController {
 
     @RequestMapping("/test")
     public ArticleVO hello1() {
-        ArticleVO article = ArticleVO.builder().id(3L).author("周诗雅").build();
+        ArticleVO article = ArticleVO.builder().id(3L).author("欢迎来到演示站点").build();
 
         log.info("测试一下:" + article);
         return article;
