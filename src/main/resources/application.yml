@@ -21,3 +21,5 @@ logging:
     com.zhoushiya.bootlaunch: trace
   pattern:
     console: '自定义日志:%p%m%n'
+
+

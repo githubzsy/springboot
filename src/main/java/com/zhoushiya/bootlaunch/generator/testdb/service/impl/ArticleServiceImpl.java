@@ -22,7 +22,7 @@ import javax.annotation.Resource;
  * @author zhoushiya
  * @since 2020-04-30
  */
-@Service
+@Service(value = "articleService")
 public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> implements IArticleService {
 
     //static Mapper mapper = DozerBeanMapperBuilder.buildDefault();
